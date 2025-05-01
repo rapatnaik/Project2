@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Rakshan Patnaik</strong> — <em>rapatnaik@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Despite recent declines, China remains ahead of the U.S in renewable energy consumption.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="./proj2earnest.png" alt="Renewable Energy Progress in the U.S and China" />
+          <figcaption>Although China has decreased their renewable energy share of total energy usage, they still use a higher percentage of renewable energy than the U.S, which has been slowly on the increase.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Unified Y-Axis — Score: 2</li>
+          <ul>
+            <li>Both lines are plotted against the same axis, allowing the viewer to see an unfiltered view into the progression of both trends. This decision allows either trend to not be exaggerated.</li>
+          </ul>
+          <li>Consistent and Granular Time Scale — Score: 1.5</li>
+          <ul>
+            <li>All available yearly data points are shown, including years where progress was flat or reversed. This gives an honest representation of each country’s renewable energy journey.</li>
+          </ul>
+          <li>Neutral Title and Subtitle — Score: 2</li>
+          <ul>
+            <li>The title avoids emotionally-charged language and taking a stance. The subtitle only tells the reality in neutral language–that China still has a higher share of renewable energy than the U.S.</li>
+          </ul>
+          <li>Color Choice for Visual Equity — Score: 2</li>
+          <ul>
+            <li>Both countries are represented with equally saturated colors (red and blue), with no deliberate emphasis through thickness or contrast. This ensures user interpretation rather than forced persuasion.</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="./proj2deceptive.png" alt="U.S Renewable Energy Surges as China Falters" />
+          <figcaption>While China's renewable energy consumption plummets, the United States sees massive growth in renewable energy.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Dual Y-Axis — Score: -1.5</li>
+          <ul>
+            <li>By using a dual-axis plot, each country is scaled independently, making the U.S. line appear significantly steeper and greater than a shared scale. Since the scales are in different colors as well, the China axis is less noticeable.</li>
+          </ul>
+          <li>Every 2-Year Filtering – Score: -1.5</li>
+          <ul>
+            <li>I omitted every other year of data to remove the granular volatility and make the increasing and decreasing trends, for the U.S. and China respectively, more smooth but extreme.</li>
+          </ul>
+          <li>Loaded and Charged Title and Subtitle — Score: -2</li>
+          <ul>
+            <li>Using charged phrasing like “surges” and “falters” directs viewers to a specific narrative that the United States is better than China in renewable energy. The subtitle implies a reversed leadership, which is actually not the case.</li>
+          </ul>
+          <li>Color Contrast and Manipulation — Score: -2</li>
+          <ul>
+            <li>By contrasting a thicker, saturated blue line for the U.S. with a thinner, dotted, and lighter pink line for China, the visualization draws the viewer’s attention away from the deceptive dual axis and reinforces a dominating U.S trend.</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>
+          My first step in this project was actually deciding on a proposition. After exploring the data extensively, I became inspired by the propaganda-type visualizations that are deceptive and politically-charged to further the glory of one country. Therefore, I landed on the comparison of the U.S. and China, two notorious rivals, in the renewable energy space. For both graphs, I used the climate dataset from the World Bank, filtering it to only include the U.S. and China, and grouped by ‘Year’ and ‘Country Name’. This allowed me to focus my analysis on a clear proposition: Is the U.S. better than China in renewable energy usage?
+          <br><br>
+          The first graph was straightforward in creating a visualization that neutrally depicts each country’s trend without exaggeration or deceptive techniques. In being transparent and natural, this graph was earnest at telling the situation at hand and leaving interpretation to the viewer. The second graph was more difficult in trying to manipulate the data points and employing visual strategies to argue the opposite viewpoint. I first filtered the data to only include data points of every other year for exaggerated trends. I utilized dual axes and a contrasting color duo to distort the framing and make the U.S look better. Initially, it felt impossible to visualize the opposite viewpoint with the same data. However, upon finishing the second graph, I was surprised at how natural and convincing my graph was, despite visualizing the same accurate data. This taught me the importance of visual channels and labeling, and how deceptive they can be.
+          <br><br>
+          Through this project, I now define ethical analysis and visualization to be those that are both truthful and contextually fair, prioritizing clarity, transparency, and interpretability over aesthetic deception and persuasion. This process showed me that deception doesn’t require lying; even with accurate data, strategies like selective framing, emphasis, or omission suggest a narrative that the data doesn’t explicitly support. The difference between “acceptable” persuasive choices and “misleading” ones are intent and impact–persuasive choices can highlight the actual trends, but they become unethical when hiding context or distorting perception. Thus, ethical visualizations are not just about accuracy. Rather, it’s about telling the viewier the FULL story, not just a convenient version of it.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
